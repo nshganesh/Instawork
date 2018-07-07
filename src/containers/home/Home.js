@@ -20,9 +20,16 @@ class Home extends React.Component {
           top:'20px', bottom: '20px', left: '20px', right: '20px'
         }} >
 
-          <ContentAdd style={{  color: "#00F", padding: '10px', cursor: 'pointer', }} onClick={() => handleAdd(users.length+1)} />
 
-          <CardTitle title="Team members" subtitle={`You have ${users.length} team members`} />
+          <CardTitle
+              title={
+                <div>
+                  <ContentAdd style={{ color: "#00F", padding: '10px', cursor: 'pointer', position: 'relative', float: 'right'}} onClick={() => handleAdd(users.length+1)} />
+                  <h4 style={{ marginTop: '0px', marginBottom: '0px' }}>Team members</h4>
+                  <small>You have {users.length} team members</small>
+                </div>
+              } />
+
           <List>
 
             {
@@ -41,6 +48,7 @@ class Home extends React.Component {
               formData={userFormData}
               handleDelete={handleDelete}
           />
+
         </Card>
     );
   }
